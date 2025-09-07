@@ -101,7 +101,6 @@ const fetchStargazers = async () => {
           <thead>
             <tr>
               <th>用户名</th>
-              <th>详细信息</th>
             </tr>
           </thead>
           <tbody>
@@ -109,20 +108,6 @@ const fetchStargazers = async () => {
               <td class="user-info">
                 <img :src="user.avatar_url" :alt="user.login" class="avatar" />
                 <a :href="user.html_url" target="_blank" class="username">{{ user.login }}</a>
-              </td>
-              <td class="details">
-                <div class="detail-grid">
-                  <div v-for="(value, key) in user" :key="key" class="detail-item">
-                    <span class="detail-key">{{ keyMapping[key] || key }}:</span>
-                    <span v-if="key.includes('_url')" class="detail-value url">
-                      <a :href="value" target="_blank">查看链接</a>
-                    </span>
-                    <span v-else-if="typeof value === 'boolean'" class="detail-value">
-                      {{ value ? '是' : '否' }}
-                    </span>
-                    <span v-else class="detail-value">{{ value || '空' }}</span>
-                  </div>
-                </div>
               </td>
             </tr>
           </tbody>
